@@ -25,11 +25,13 @@ const CtoSection = () => {
 
   //available quick donate ammounts
   const donationAmmounts = [10, 50, 100];
+
   //render ammounts
   const renderAmmounts = () =>
     donationAmmounts.map((ammount, index) => {
       //function to handle click
-      const handleClick = () => {
+      const handleClick = () => { 
+        //value
         setValue(ammount);
         setCurrent(index);
       };

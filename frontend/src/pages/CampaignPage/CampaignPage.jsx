@@ -1,21 +1,34 @@
 import "./campaignPage.css";
 
-import { fakeCampaigns } from "../../utils/fakeData";
-
 import { useParams, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
+
+import { getApi } from "../../utils/getApi";
+
+import axios from "axios";
 
 const CampaignPage = () => {
   const { id } = useParams();
 
   const navigate = useNavigate();
 
-  const { title, description, mainImg } = fakeCampaigns[id];
+  const [{ title, description, mainImg }, setData] = useState({});
+
+  const fetchCampaign = async () => {
+    const { data } = await axios.get(getApi(`/campaign/id/${id}`));
+    console.log(data);
+    setData(data);
+  };
 
   const handleBack = () => {
     navigate(-1);
   };
+
+  useEffect(() => {
+    fetchCampaign();
+  }, []);
 
   return (
     <div className="campaignPage">

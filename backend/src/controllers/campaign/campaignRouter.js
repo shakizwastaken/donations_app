@@ -9,6 +9,7 @@ const {
   updateCampaign,
 } = require("./campaignController");
 
+//create router
 const campaignRouter = express.Router();
 
 //return all Campaigns

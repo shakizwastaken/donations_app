@@ -1,6 +1,7 @@
 const { Campaign } = require("../../config/db.config");
 const { statusError } = require("../../utils/errorHandling");
 
+//get all campaigns
 const findAllCampaigns = async (req, res, next) => {
   try {
     const campaigns = await Campaign.findAll({ raw: true });
@@ -14,20 +15,24 @@ const findAllCampaigns = async (req, res, next) => {
   }
 };
 
+//find campaign from id
 const findCampaignFromId = async (req, res, next) => {
   try {
-    const campagin = Campaign.findByPk(req.params.id, { raw: true });
+    const campaign = await Campaign.findByPk(Number.parseInt(req.params.id), {
+      raw: true,
+    });
 
-    if (!campagin.length) {
-      return next(new statusError("campagin not found !", 404, false));
+    if (!campaign) {
+      return next(new statusError("campaign not found !", 404, false));
     }
 
-    res.status(200).json(campagin);
+    res.status(200).json(campaign);
   } catch (e) {
     next(e);
   }
 };
 
+//find campaign from title
 const findCampaignFromTitle = async (req, res, next) => {
   try {
     const campaign = await Campaign.findOne({
@@ -35,8 +40,8 @@ const findCampaignFromTitle = async (req, res, next) => {
       raw: true,
     });
 
-    if (!campagins) {
-      return next(new statusError("campagin not found !", 404, false));
+    if (!campaigns) {
+      return next(new statusError("campaign not found !", 404, false));
     }
 
     res.status(200).json(campaign);
@@ -57,7 +62,7 @@ const createCampaign = async (req, res, next) => {
 const updateCampaign = async (req, res, next) => {
   const id = req.params.id;
 
-  try { 
+  try {
     const state = await Campaign.update(
       { ...req.body },
       { where: { id } },

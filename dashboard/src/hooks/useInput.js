@@ -28,9 +28,6 @@ const useInput = (options, check, ...payload) => {
 
   //handle value change event
   const handleChange = (e) => {
-    //images
-    if (type === "file") return setValue(e.target.files);
-
     if (onChange) return onChange(e);
 
     //checkbox
@@ -64,7 +61,7 @@ const useInput = (options, check, ...payload) => {
       className={className}
       placeholder={placeholder}
       type={type}
-      value={type !== "file" ? value : undefined}
+      value={type === "file" ? null : value} //adding support for images
       name={name}
       accept={accept}
       onChange={handleChange}

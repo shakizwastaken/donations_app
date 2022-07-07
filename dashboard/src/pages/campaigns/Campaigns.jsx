@@ -4,7 +4,11 @@ import { useFetch } from "../../hooks/useFetch";
 import AddCampaign from "./components/addCampaign";
 
 const Campaigns = () => {
-  const [data, err, loading, fetchData, renderData] = useFetch("/campaign");
+  const [data, err, loading, fetchData] = useFetch("/campaign");
+
+  const renderData = () => {
+    console.log(data);
+  };
 
   return (
     <div className="campaigns-page page">

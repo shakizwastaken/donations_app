@@ -1,22 +1,21 @@
-import africanWomen from "../assets/campaigns/africaWomen.jpg";
-import strayDogs from "../assets/campaigns/strayDogs.jpg";
-import moroccanWomen from "../assets/campaigns/moroccoWomen.jpg";
-
 export const fakeCampaigns = [
   {
     title: "Save africa",
     description: "Donate to help save african women and their children",
-    mainImg: africanWomen,
+    mainImg:
+      "https://res.cloudinary.com/drdyt9nkv/image/upload/v1657184150/campaigns/africaWomen_nqz1y2.jpg",
   },
   {
     title: "Moroccan women",
     description: "Donate to widows around morocco",
-    mainImg: moroccanWomen,
+    mainImg:
+      "https://res.cloudinary.com/drdyt9nkv/image/upload/v1657184135/campaigns/moroccoWomen_wqdjct.jpg",
   },
   {
     title: "Stray dogs rescue",
     description:
       "Donate to help rescue stray dogs arround morocco and give them a shelter",
-    mainImg: strayDogs,
+    mainImg:
+      "https://res.cloudinary.com/drdyt9nkv/image/upload/v1657184137/campaigns/strayDogs_zhnn2n.jpg",
   },
 ];

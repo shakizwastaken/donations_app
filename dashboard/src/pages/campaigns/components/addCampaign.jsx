@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import AddItem from "../../../components/addItem/AddItem";
+import UploadImg from "../../../components/uploadImg/UploadImg";
 import useInput from "../../../hooks/useInput";
 
 const AddCampaign = () => {
+  //inputs values
   const inputs = {
     title: {
       ...useInput({
@@ -32,26 +34,12 @@ const AddCampaign = () => {
         required: true,
       }),
     },
-    mainImg: {
-      ...useInput({
-        label: "mainImg",
-        type: "file",
-        required: true,
-      }),
-    },
   };
-
-  const [currentImg, setCurrentImg] = useState();
-  const displayImg = () => URL.createObjectURL(inputs.mainImg[0]);
-
-  useEffect(() => {
-    if (inputs.mainImg.value) setCurrentImg(displayImg());
-  }, [inputs.mainImg.value]);
 
   return (
     <>
       <AddItem itemName="campaign" inputs={inputs} apiPath="/campaign" />
-      <img src={displayImg} alt="displayed img" />
+      <UploadImg />
     </>
   );
 };

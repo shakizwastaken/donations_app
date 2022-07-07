@@ -1,6 +1,8 @@
 module.exports = function (req, res, next) {
   //allow requests from localhost:3000
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3001");
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3002");
 
   res.setHeader(
     "Access-Control-Allow-Methods",

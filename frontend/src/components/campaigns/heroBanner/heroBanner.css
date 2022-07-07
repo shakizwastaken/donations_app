@@ -6,7 +6,7 @@
   }
 
   .campaigns_hero_header {
-    @apply relative top-10 self-center w-[65vw];
+    @apply relative self-center w-[65vw];
   }
 
   .campaigns_hero_header > img {

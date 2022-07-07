@@ -26,7 +26,7 @@ const port = process.env.PORT || 3001;
 const corsFix = require("./utils/cors.js");
 app.use(corsFix);
 
-//json 
+//json
 app.use(express.json());
 
 //static public

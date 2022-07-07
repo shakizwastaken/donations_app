@@ -25,6 +25,10 @@
     @apply font-bold text-white text-3xl select-none;
   }
 
+  nav.white {
+    @apply bg-white;
+  }
+
   nav.white .nav-link {
     @apply text-main_blue;
   }
@@ -35,6 +39,6 @@
   }
 
   nav.scrolled {
-    @apply shadow-md bg-white;
+    @apply shadow-md;
   }
 }
