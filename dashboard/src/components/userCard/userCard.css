@@ -1,0 +1,39 @@
+@tailwind components;
+
+@layer components {
+  .userCard {
+    @apply relative flex flex-col justify-center items-center gap-5  w-[250px] h-[250px] bg-white shadow-md border-black border-2 rounded-md;
+  }
+
+  .user-flag {
+    @apply p-1 text-xs text-white rounded-md cursor-pointer flex justify-center items-center;
+  }
+
+  .user-pfp {
+    @apply absolute w-[75px] h-[75px] rounded-full top-0 -translate-y-[50%] bg-slate-200 p-2 border-black border-2 cursor-pointer;
+  }
+
+  .user-username {
+    @apply text-xl font-bold flex gap-5;
+  }
+
+  .user-you {
+    @apply bg-blue-500 w-[30px] h-5 text-center;
+  }
+
+  .user-info-item {
+    @apply flex gap-1;
+  }
+
+  .user-footer {
+    @apply absolute bottom-5 flex justify-between items-center w-[80%];
+  }
+
+  .user-admin {
+    @apply bg-red-500;
+  }
+
+  .user-edit {
+    @apply bg-blue-500;
+  }
+}

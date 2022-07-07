@@ -1,0 +1,19 @@
+@tailwind components;
+
+@layer components {
+  .sidebar-link {
+    @apply relative text-white cursor-pointer flex items-center gap-2;
+  }
+
+  .sidebar-link-children {
+    @apply absolute flex flex-col gap-4 left-10 rounded-lg top-0 bg-blue-500 p-3;
+  }
+
+  .sidebar-link-info {
+    @apply hidden absolute left-10 top-0 rounded-lg bg-blue-500 px-3 py-2;
+  }
+
+  .sidebar-link:hover .sidebar-link-info {
+    display: block;
+  }
+}

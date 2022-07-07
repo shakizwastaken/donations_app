@@ -1,0 +1,11 @@
+@tailwind components;
+
+@layer components {
+  .sidebar {
+    @apply sticky left-0 top-0 flex flex-col items-center justify-around w-[50px]  px-3 h-screen bg-blue-500 z-50;
+  }
+
+  .sidebar-links {
+    @apply flex flex-col items-center gap-10;
+  }
+}

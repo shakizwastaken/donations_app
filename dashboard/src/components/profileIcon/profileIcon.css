@@ -1,0 +1,7 @@
+@tailwind components;
+
+@layer components {
+  .profileIcon {
+    @apply rounded-full bg-white flex justify-center items-center cursor-pointer p-1;
+  }
+}

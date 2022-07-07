@@ -1,0 +1,45 @@
+@tailwind components;
+@layer components {
+  .cta_section {
+    @apply flex justify-center items-center flex-col gap-24
+      w-screen h-screen;
+  }
+
+  .cta_section_header {
+    @apply text-main_green text-5xl tracking-wide w-[500px] text-center;
+  }
+
+  .cta_container {
+    @apply flex justify-center items-center flex-col gap-9 
+    w-[55vw] h-[38vh]
+    bg-main_green text-main_green
+    rounded-xl;
+  }
+
+  .cta_container_header {
+    @apply text-white text-3xl font-bold w-[40vw] text-center;
+  }
+
+  .cta_container_form {
+    @apply flex gap-3;
+  }
+
+  .cta_container_btn {
+    @apply text-xl font-bold h-12;
+  }
+
+  .cta_container_custom {
+    @apply p-2 rounded-md text-main_blue;
+  }
+  .cta_container_ammount {
+    @apply text-main_green bg-white;
+  }
+
+  .cta_container_ammount.current {
+    @apply text-main_blue;
+  }
+
+  .cta_container_submit {
+    @apply text-main_green bg-white;
+  }
+}

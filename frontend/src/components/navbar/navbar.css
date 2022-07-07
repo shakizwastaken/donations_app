@@ -1,0 +1,40 @@
+@tailwind components;
+
+@layer components {
+  nav {
+    @apply flex justify-center align-middle h-[75px] w-screen sticky top-0 left-0 z-50;
+  }
+
+  nav .nav-container {
+    @apply flex flex-row justify-between items-center w-[80vw] h-[75px];
+  }
+
+  .nav-links {
+    @apply flex justify-center items-center gap-[7%] text-[1rem];
+  }
+
+  .nav-link {
+    @apply select-none cursor-pointer text-white font-[600];
+  }
+
+  .nav-link-selected {
+    @apply text-main_blue;
+  }
+
+  .nav-logo {
+    @apply font-bold text-white text-3xl select-none;
+  }
+
+  nav.white .nav-link {
+    @apply text-main_blue;
+  }
+
+  nav.white .nav-link-selected,
+  nav.white .nav-logo {
+    @apply text-main_green;
+  }
+
+  nav.scrolled {
+    @apply shadow-md bg-white;
+  }
+}

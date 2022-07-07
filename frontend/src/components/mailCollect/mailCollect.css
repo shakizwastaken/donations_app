@@ -1,0 +1,27 @@
+@tailwind components;
+
+@layer components {
+  .mailCollect_wrapper {
+    @apply w-screen flex flex-col justify-center items-center my-12 gap-12 h-[50vh];
+  }
+
+  .mailCollect_header {
+    @apply text-4xl text-main_green;
+  }
+
+  .mailCollect {
+    @apply rounded-md h-[20vh] w-fit flex justify-center items-center bg-main_green gap-10 px-12;
+  }
+
+  .mailCollect_item {
+    @apply p-3 rounded-md;
+  }
+
+  .mailCollect_input {
+    @apply bg-white border-slate-100 text-main_blue;
+  }
+
+  .mailCollect_btn {
+    @apply hover:bg-white hover:text-main_green font-bold text-white border-white border-solid border-2;
+  }
+}

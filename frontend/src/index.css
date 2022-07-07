@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes fade-up {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+/* :root {
+  --main_green: #35d331;
+  --main_blue: #0e185f;
+} */
+
+@layer base {
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;800;900&display=swap");
+
+  * {
+    @apply mr-0 p-0 border-none outline-none font-Montserrat;
+  }
+
+  h1 {
+    font-weight: 900;
+  }
+
+  body {
+    @apply overflow-x-hidden;
+  }
+
+  html {
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .fadeup {
+    animation: fade-up 1s ease;
+  }
+
+  .hover_up {
+    @apply hover:-translate-y-[5%] transition-all duration-300 ease-in-out;
+  }
+
+  .hover_up:hover {
+    box-shadow: 0px 7px 0px 0px rgba(0, 0, 0, 0.088);
+  }
+
+  .btn {
+    @apply flex justify-center items-center py-2 px-6 rounded-md cursor-pointer;
+  }
+
+  .section {
+    @apply w-full min-h-screen flex flex-col;
+  }
+
+  .section_header {
+    @apply mx-12;
+  }
+}

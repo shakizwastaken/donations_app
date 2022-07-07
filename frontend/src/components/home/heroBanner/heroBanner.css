@@ -1,0 +1,16 @@
+@tailwind components;
+
+@layer components {
+  .home_hero {
+    @apply justify-center items-start;
+  }
+
+  .home_hero_header {
+    @apply flex flex-col justify-center items-start gap-5 text-[5rem] w-[50vw] text-main_blue;
+  }
+
+  .home_hero_bg > svg {
+    @apply absolute -z-[1] left-0 fill-main_green;
+    top: -1px;
+  }
+}

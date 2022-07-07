@@ -1,0 +1,38 @@
+@tailwind components;
+@layer components {
+  .addItem {
+    @apply p-12 flex flex-col justify-center items-center gap-10;
+  }
+
+  .addItem_header {
+    @apply font-bold text-3xl flex flex-col justify-center gap-10;
+  }
+
+  .addItem_form {
+    @apply flex w-[80vw] flex-wrap;
+  }
+
+  .addItem_input {
+    @apply flex p-1 justify-between items-center gap-2;
+  }
+
+  .addItem_input > input {
+    @apply p-1 border-black border-2 rounded-md;
+  }
+
+  .addItem_msg {
+    @apply font-bold;
+  }
+
+  .addItem_err {
+    @apply text-red-500;
+  }
+
+  .addItem_success {
+    @apply text-green-500;
+  }
+
+  .addItem_submit {
+    @apply p-2 flex justify-center items-center bg-blue-600 text-white rounded-md;
+  }
+}

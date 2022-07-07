@@ -1,0 +1,7 @@
+@tailwind components;
+
+@layer components {
+  .users-section {
+    @apply flex flex-wrap shrink-0 gap-10;
+  }
+}

@@ -1,0 +1,7 @@
+@tailwind components;
+
+@layer components {
+  .campaignCards {
+    @apply flex justify-center items-center flex-wrap gap-5 w-screen min-h-screen my-12;
+  }
+}

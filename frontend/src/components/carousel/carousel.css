@@ -1,0 +1,43 @@
+@tailwind components;
+
+@layer components {
+  .carousel {
+    @apply flex justify-around items-center overflow-hidden w-[85vw];
+  }
+  .carousel_cards {
+    @apply flex justify-center items-center;
+  }
+  .carousel_cards :nth-child(1) {
+    @apply opacity-25;
+    transform: scale(0.5) translateX(125%);
+  }
+  .carousel_cards :nth-child(5) {
+    @apply opacity-25;
+    transform: scale(0.5) translateX(-125%);
+  }
+  .carousel_cards :nth-child(2) {
+    @apply opacity-75 brightness-50;
+    transform: scale(0.75) translateX(25%);
+    z-index: 5;
+  }
+  .carousel_cards :nth-child(4) {
+    @apply opacity-75 brightness-50;
+    transform: scale(0.75) translateX(-25%);
+    z-index: 5;
+  }
+  .carousel_cards :nth-child(3) {
+    z-index: 10;
+  }
+
+  .carousel_cards > * {
+    @apply pointer-events-none;
+  }
+
+  .carousel_arrows {
+    @apply z-10;
+  }
+
+  .carousel_arrows > * {
+    @apply flex justify-center items-center w-[50px] h-[50px];
+  }
+}

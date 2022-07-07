@@ -1,0 +1,31 @@
+@tailwind components;
+
+@layer components {
+  .login {
+    @apply flex flex-col justify-center items-center gap-16 h-[50vh] w-[30vw] bg-slate-300 rounded-lg;
+  }
+
+  .login_header {
+    @apply font-bold text-3xl;
+  }
+
+  .login_form {
+    @apply flex flex-col gap-5;
+  }
+
+  .login_input {
+    @apply flex justify-between gap-5;
+  }
+
+  .login_input input {
+    @apply rounded outline-none border-none px-3 py-1 text-lg;
+  }
+
+  .login_btn {
+    @apply rounded-md hover:bg-transparent hover:text-black hover:outline outline-4 outline-black bg-black text-white px-3 py-5;
+  }
+
+  .login_forgot {
+    @apply cursor-pointer hover:text-zinc-500;
+  }
+}

@@ -1,0 +1,19 @@
+@tailwind components;
+
+@layer components {
+  .campaigns_hero {
+    @apply relative justify-center overflow-hidden;
+  }
+
+  .campaigns_hero_header {
+    @apply relative top-10 self-center w-[65vw];
+  }
+
+  .campaigns_hero_header > img {
+    @apply shadow-lg rounded-lg;
+  }
+
+  .campaigns_hero_header > h1 {
+    @apply absolute top-16 -translate-x-[50%] text-white text-5xl bg-main_green w-fit p-5 rounded-md cursor-pointer;
+  }
+}
