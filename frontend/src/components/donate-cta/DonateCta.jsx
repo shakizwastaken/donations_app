@@ -30,7 +30,7 @@ const CtoSection = () => {
   const renderAmmounts = () =>
     donationAmmounts.map((ammount, index) => {
       //function to handle click
-      const handleClick = () => { 
+      const handleClick = () => {
         //value
         setValue(ammount);
         setCurrent(index);
@@ -51,7 +51,7 @@ const CtoSection = () => {
 
   return (
     <div className="cta_section ">
-      <h1 className="cta_section_header">“We rise by helping others.”</h1>
+      <h1 className="cta_section_header">Quick Donate:</h1>
 
       <div className="cta_container">
         <h2 className="cta_container_header">

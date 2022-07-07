@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import AddItem from "../../../components/addItem/AddItem";
-import UploadImg from "../../../components/uploadImg/UploadImg";
 import useInput from "../../../hooks/useInput";
 
 const AddCampaign = () => {
@@ -34,12 +33,18 @@ const AddCampaign = () => {
         required: true,
       }),
     },
+    mainImg: {
+      ...useInput({
+        label: "mainImg",
+        type: "file",
+        required: false,
+      }),
+    },
   };
 
   return (
     <>
       <AddItem itemName="campaign" inputs={inputs} apiPath="/campaign" />
-      <UploadImg />
     </>
   );
 };

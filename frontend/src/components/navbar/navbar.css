@@ -25,6 +25,11 @@
     @apply font-bold text-white text-3xl select-none;
   }
 
+  .cart-icon {
+    @apply text-white cursor-pointer flex items-center justify-center;
+  }
+  
+
   nav.white {
     @apply bg-white;
   }

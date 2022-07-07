@@ -1,5 +1,9 @@
-import { useEffect, useState } from "react";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { openCart } from "../../context/cartContext/CartActions";
+import { CartContext } from "../../context/cartContext/CartContext";
 import "./navbar.css";
 
 const Navbar = () => {
@@ -59,6 +63,13 @@ const Navbar = () => {
     ));
   };
 
+  //cart toggler
+  const { dispatch } = useContext(CartContext);
+
+  const handleCart = () => {
+    dispatch({ type: openCart });
+  };
+
   return (
     <nav
       className={`${isScrolled && "scrolled white"} ${
@@ -69,7 +80,13 @@ const Navbar = () => {
         <div className="nav-logo">
           <h1>Logo</h1>
         </div>
-        <div className="nav-links">{renderLinks()}</div>
+        <div className="nav-links">
+          {renderLinks()}
+
+          <div className="cart-icon" onClick={handleCart}>
+            <FontAwesomeIcon icon={faCartShopping} />
+          </div>
+        </div>
       </div>
     </nav>
   );

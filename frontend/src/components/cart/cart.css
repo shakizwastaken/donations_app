@@ -1,0 +1,19 @@
+@tailwind components;
+
+@layer components {
+  .cart {
+    @apply fixed top-0 right-0 w-[50vw] h-screen bg-white z-[100] transition-all ease-linear;
+  }
+
+  .cart-closed {
+    @apply translate-x-[100%] pointer-events-none;
+  }
+
+  .cart-open {
+    @apply translate-x-0;
+  }
+
+  .cart-close_icon > * {
+    @apply w-[50px] h-[50px] cursor-pointer;
+  }
+}

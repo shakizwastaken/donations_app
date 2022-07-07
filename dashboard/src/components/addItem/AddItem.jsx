@@ -25,18 +25,28 @@ const AddItem = ({ itemName, inputs, apiPath }) => {
   const handleSubmit = async (e) => {
     //prevent refresh
     e.preventDefault();
+
+    //check values and handle errors
+    if (!checkValues()) return setErr("an error has occured");
+
+    //save images
+    Object.values(inputs).forEach(async ({ type, handleSaveImg }) => {
+      if (type === "file") await handleSaveImg();
+    });
+
     //map inputs values into object and return object
     const getData = () => {
       const data = {};
 
       Object.entries(inputs).forEach(([key, input]) => {
-        data[key] = input.value;
+        if (input.type === "file") {
+          data[key] = input.value;
+        } else {
+          data[key] = input.value;
+        }
       });
       return data;
     };
-
-    //check values and handle errors
-    if (!checkValues()) return setErr("an error has occured");
 
     try {
       const res = await axios.post(getApi(apiPath), getData(), {

@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useId, useState } from "react";
 
 const useInput = (options, check, ...payload) => {
@@ -32,6 +33,9 @@ const useInput = (options, check, ...payload) => {
 
     //checkbox
     if (type === "checkbox") return setValue(e.target.checked);
+
+    //image
+    if (type === "file") return setValue(e.target.files[0]);
     else setValue(e.target.value);
   };
 
@@ -55,6 +59,25 @@ const useInput = (options, check, ...payload) => {
 
   const placeholder = `${label}`;
 
+  //for images only
+
+  const handleSaveImg = async () => {
+    const apiLink = "https://api.cloudinary.com/v1_1/drdyt9nkv/image/upload/";
+
+    if (!value) return;
+
+    try {
+      const formData = new FormData();
+      formData.append("file", value);
+      formData.append("upload_preset", "default_preset");
+
+      const { data } = await axios.post(apiLink, formData);
+      setValue(data.url);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const getInput = () => (
     <input
       key={id}
@@ -76,6 +99,7 @@ const useInput = (options, check, ...payload) => {
     placeholder,
     value,
     handleChange,
+    handleSaveImg,
     clearValue,
     isValid,
     setValue,

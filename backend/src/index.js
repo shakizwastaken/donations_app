@@ -1,6 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-const cors = require("cors");
 
 //mysql setup
 const { connection } = require("./config/db.config");
@@ -23,8 +22,9 @@ const port = process.env.PORT || 3001;
 //middleware
 
 //access quick fix
-const corsFix = require("./utils/cors.js");
-app.use(corsFix);
+const cors = require("cors");
+const corsSettings = require("./utils/cors.js");
+app.use(cors(corsSettings));
 
 //json
 app.use(express.json());
