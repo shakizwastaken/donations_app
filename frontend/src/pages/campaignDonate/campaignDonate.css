@@ -1,0 +1,27 @@
+@tailwind components;
+
+@layer components {
+  .campaignDonate {
+    @apply flex flex-col p-5 gap-5 bg-main_blue rounded-md;
+  }
+
+  .campaignDonate_btns {
+    @apply flex gap-5;
+  }
+
+  .campaignDonate_container_ammount {
+    @apply font-bold text-main_blue bg-white;
+  }
+
+  .campaignDonate_container_ammount.current_ammount {
+    @apply text-main_green;
+  }
+
+  .campaignDonate_container_custom {
+    @apply p-2 rounded-md text-main_green font-bold;
+  }
+
+  .campaignDonate_submit {
+    @apply bg-white text-main_blue;
+  }
+}

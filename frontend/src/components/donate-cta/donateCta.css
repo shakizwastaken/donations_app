@@ -1,8 +1,8 @@
 @tailwind components;
 @layer components {
   .cta_section {
-    @apply flex justify-center items-center flex-col gap-24
-      w-screen h-screen;
+    @apply flex justify-center items-center flex-col gap-16
+      w-screen h-[60vh];
   }
 
   .cta_section_header {
@@ -35,7 +35,7 @@
     @apply text-main_green bg-white;
   }
 
-  .cta_container_ammount.current {
+  .cta_container_ammount.current_ammount {
     @apply text-main_blue;
   }
 

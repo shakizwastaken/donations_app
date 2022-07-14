@@ -1,53 +1,34 @@
 import "./donateCta.css";
+import { useDonateAmmounts } from "../../hooks/useAmmounts";
 
-import useInput from "../../hooks/useInput";
-import { useState } from "react";
+import { CartContext } from "../../context/cartContext/CartContext";
+import { useContext } from "react";
+import { addItem, openCart } from "../../context/cartContext/CartActions";
 
-const CtoSection = () => {
-  const [value, setValue] = useState(0); //selected ammount
+const DonateCta = () => {
+  const { renderAmmounts, customInput, value, clearValue } = useDonateAmmounts(
+    [50, 100, 200],
+    "btn cta_container_btn cta_container_ammount",
+    "cta_container_custom"
+  );
 
-  const [current, setCurrent] = useState(0);
+  const { dispatch } = useContext(CartContext);
 
-  //custom value input change handler
-  const handleCustom = (e) => {
-    setCurrent(-1);
-    setValue(Number.parseInt(e.target.value));
-  };
-
-  //custom value input object
-  const customInput = useInput({
-    label: "custom",
-    type: "number",
-    required: false,
-    className: "cta_container_custom",
-    onChange: handleCustom,
-  });
-
-  //available quick donate ammounts
-  const donationAmmounts = [10, 50, 100];
-
-  //render ammounts
-  const renderAmmounts = () =>
-    donationAmmounts.map((ammount, index) => {
-      //function to handle click
-      const handleClick = () => {
-        //value
-        setValue(ammount);
-        setCurrent(index);
-      };
-
-      return (
-        <button
-          key={index}
-          className={`btn cta_container_btn cta_container_ammount ${
-            current === index && "current"
-          }`}
-          onClick={handleClick}
-        >
-          {ammount}$
-        </button>
-      );
+  const handleDonate = () => {
+    dispatch({
+      type: addItem,
+      payload: {
+        ammount: value,
+        campaignId: -1,
+        campaignTitle: "Quick donation",
+        campaignImg: null,
+      },
     });
+
+    clearValue();
+
+    dispatch({ type: openCart });
+  };
 
   return (
     <div className="cta_section ">
@@ -63,7 +44,10 @@ const CtoSection = () => {
 
           {customInput.getInput()}
 
-          <button className="btn cta_container_btn cta_container_submit hover_up">
+          <button
+            className="btn cta_container_btn cta_container_submit hover_up"
+            onClick={handleDonate}
+          >
             Donate
           </button>
         </div>
@@ -72,4 +56,4 @@ const CtoSection = () => {
   );
 };
 
-export default CtoSection;
+export default DonateCta;

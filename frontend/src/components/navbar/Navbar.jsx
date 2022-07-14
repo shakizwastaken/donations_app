@@ -30,18 +30,23 @@ const Navbar = () => {
   const links = [
     { id: 0, label: "Home", to: "/", transparent: true },
     { id: 1, label: "Campaigns", to: "/Campaigns", transparent: false },
-    { id: 2, label: "Oranizations", to: "/Organizations", transparent: false },
+    // { id: 2, label: "Oranizations", to: "/Organizations", transparent: false },
     // { id: 3, label: "Sponsors", to: "/Sponsors", transparent: false },
     { id: 4, label: "About", to: "/About", transparent: false },
     { id: 5, label: "Contact", to: "/Contact", transparent: false },
   ];
 
   useEffect(() => {
+    const pathname = window.location.pathname;
+
     links.forEach(({ id, to }) => {
-      if (to === window.location.pathname) {
+      if (to === pathname) {
         setCurrent(id);
       }
     });
+
+    if (pathname !== "/Campaigns" && pathname.startsWith("/campaign"))
+      setCurrent(1);
 
     //scroll to top of page
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -78,7 +83,13 @@ const Navbar = () => {
     >
       <div className="nav-container">
         <div className="nav-logo">
-          <h1>Logo</h1>
+          <h1
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Logo
+          </h1>
         </div>
         <div className="nav-links">
           {renderLinks()}

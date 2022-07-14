@@ -2,13 +2,14 @@ require("dotenv").config();
 const express = require("express");
 
 //mysql setup
-const { connection } = require("./config/db.config");
+const { connection, initDb } = require("./config/db.config");
 const { seedData } = require("./utils/seeder");
 
 try {
   // seedData(); //create db if not exists and seed data
 
   connection.authenticate().then(console.log("connected"));
+  initDb();
 } catch (err) {
   console.log(err);
 }

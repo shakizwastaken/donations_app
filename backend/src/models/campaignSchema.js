@@ -6,6 +6,10 @@ const campaignSchema = {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  // subTitle: {
+  //   type: DataTypes.STRING,
+  //   allowNull: false,
+  // },
   description: {
     type: DataTypes.STRING,
     allowNull: false,

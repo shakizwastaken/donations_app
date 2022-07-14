@@ -1,4 +1,4 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useReducer } from "react";
 import {
   openCart,
   closeCart,
@@ -7,11 +7,24 @@ import {
   setAmmount,
   clearCart,
 } from "./CartActions";
-import { changeAmmount, createItem, deleteItem } from "./CartFunctions";
+import {
+  cartItem,
+  changeAmmount,
+  createItem,
+  deleteItem,
+} from "./CartFunctions";
 
 const initialState = {
   isOpen: false,
-  items: {},
+  items: {
+    0: new cartItem(
+      0,
+      100,
+      4,
+      "Stray dogs rescue",
+      "https://res.cloudinary.com/drdyt9nkv/image/upload/v1657184137/campaigns/strayDogs_zhnn2n.jpg"
+    ),
+  },
 };
 
 const CartReducer = (state, action) => {
@@ -25,13 +38,10 @@ const CartReducer = (state, action) => {
       return { ...state, isOpen: false };
 
     case addItem:
-      return createItem(
-        { ammount: payload.ammount, campaignId: payload.campaignId },
-        state
-      );
+      return createItem({ ...payload }, state);
 
     case removeItem:
-      return deleteItem(payload.id);
+      return deleteItem(payload.id, state);
 
     case setAmmount:
       return changeAmmount(

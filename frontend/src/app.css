@@ -5,7 +5,3 @@
     @apply flex flex-col justify-center items-center w-screen min-h-screen;
   }
 }
-
-.app > * {
-  /* scroll-snap-align: start; */
-}

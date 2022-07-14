@@ -11,9 +11,12 @@ const { eventSchema, eventConfig } = require("../models/eventSchema");
 let connection = new Sequelize({
   host: process.env.DATABASE_HOST,
   port: process.env.DATABASE_PORT,
+
   database: process.env.DATABASE_DB,
+
   username: process.env.DATABASE_USER,
   password: process.env.DATABASE_PASSWORD,
+
   dialect: "postgres",
 
   pool: {
@@ -53,13 +56,7 @@ models.Event.belongsToMany(models.Organization, {
 });
 
 const initDb = async () => {
-  Object.values(models).forEach(async (model) => {
-    try {
-      await model.sync();
-    } catch (err) {
-      console.log(err.message);
-    }
-  });
+  await connection.sync();
 };
 
 module.exports = { connection, initDb, ...models };

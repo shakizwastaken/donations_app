@@ -16,7 +16,9 @@ const CampaignCard = ({ id, title, desc, img, isdark }) => {
         <img src={img} alt={`${title}`} />
       </div>
       <div
-        className={`campaignCard_content_wrapper ${isdark ? "blue" : "green"}`}
+        className={`campaignCard_content_wrapper ${
+          isdark ? "dark-card" : "light-card"
+        }`}
       >
         <div className="campaignCard_content">
           <div className="campaignCard_info">

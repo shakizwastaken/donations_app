@@ -1,16 +1,12 @@
-import {
-  faArrowAltCircleLeft,
-  faArrowAltCircleRight,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { home_wave_bg } from "../../../assets/svgs";
 import "./newestCampaigns.css";
 
+import axios from "axios";
 import { getApi } from "../../../utils/getApi";
 
 import { useEffect, useState } from "react";
-import axios from "axios";
-import Slider from "react-slick";
+
+import CustomCarousel from "../../customCarousel/CustomCarousel";
 import CampaignCard from "../../campaigns/campaignCard/CampaignCard";
 
 const NewestCampaigns = () => {
@@ -30,9 +26,22 @@ const NewestCampaigns = () => {
   }, []);
 
   const renderData = () => {
-    return data.map((campaign, i) => (
-      <img className="test" src={campaign.mainImg} alt="so cool" />
-    ));
+    return (
+      <CustomCarousel>
+        {data.map(({ id, title, description, mainImg }, index) => (
+          <div className="carouselItem">
+            <CampaignCard
+              key={id}
+              id={id}
+              title={title}
+              desc={description}
+              img={mainImg}
+              isdark={false}
+            />
+          </div>
+        ))}
+      </CustomCarousel>
+    );
   };
 
   return (

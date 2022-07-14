@@ -22,16 +22,19 @@
   }
 
   .nav-logo {
-    @apply font-bold text-white text-3xl select-none;
+    @apply font-bold text-white text-3xl select-none cursor-pointer;
   }
 
   .cart-icon {
     @apply text-white cursor-pointer flex items-center justify-center;
   }
-  
 
   nav.white {
     @apply bg-white;
+  }
+
+  nav.white .cart-icon {
+    @apply text-main_blue;
   }
 
   nav.white .nav-link {

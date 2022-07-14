@@ -3,9 +3,11 @@ const _newId = () => {
 };
 
 export class cartItem {
-  constructor(id, ammount, campaignId) {
+  constructor(id, ammount, campaignId, campaignTitle, campaignImg) {
     this.ammount = ammount;
     this.campaignId = campaignId;
+    this.campaignTitle = campaignTitle;
+    this.campaignImg = campaignImg;
     this.id = id;
   }
 
@@ -14,10 +16,19 @@ export class cartItem {
   };
 }
 
-export const createItem = ({ ammount, campaignId }, state) => {
+export const createItem = (
+  { ammount, campaignId, campaignTitle, campaignImg },
+  state
+) => {
   const id = _newId();
-  const item = new cartItem(id, ammount, campaignId);
-  return { ...state, items: { ...state.items, item } };
+  const item = new cartItem(
+    id,
+    ammount,
+    campaignId,
+    campaignTitle,
+    campaignImg
+  );
+  return { ...state, items: { ...state.items, [id]: item } };
 };
 
 export const deleteItem = (id, state) => {

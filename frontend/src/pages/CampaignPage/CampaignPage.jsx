@@ -3,32 +3,25 @@ import "./campaignPage.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "react";
 
-import { getApi } from "../../utils/getApi";
+import DonateCta from "../../components/donate-cta/DonateCta";
+import MailCollect from "../../components/mailCollect/MailCollect";
 
-import axios from "axios";
+import { useFetchCampaign } from "../../hooks/useFetchCampaign";
+import CampaignDonate from "../campaignDonate/CampaignDonate";
 
 const CampaignPage = () => {
   const { id } = useParams();
 
   const navigate = useNavigate();
 
-  const [{ title, description, mainImg }, setData] = useState({});
-
-  const fetchCampaign = async () => {
-    const { data } = await axios.get(getApi(`/campaign/id/${id}`));
-    console.log(data);
-    setData(data);
-  };
+  const {
+    data: { title, description, mainImg },
+  } = useFetchCampaign(id);
 
   const handleBack = () => {
     navigate(-1);
   };
-
-  useEffect(() => {
-    fetchCampaign();
-  }, []);
 
   return (
     <div className="campaignPage">
@@ -42,18 +35,29 @@ const CampaignPage = () => {
         <h1 className="campaignPage_header">{title}</h1>
         <h2 className="campaignPage_subHeader">{description}</h2>
         <div className="campaignPage_content">
-          <img
-            className="campaignPage_mainImg"
-            src={mainImg}
-            alt={`${title}'s main img`}
-          />
+          <div className="campaignPage_mainImg_container">
+            <img
+              className="campaignPage_mainImg"
+              src={mainImg}
+              alt={`${title}'s main img`}
+            />
+          </div>
 
           <div className="campaignPage_info">
             <h1 className="campaignPage_info_header">{title}</h1>
-            <button>Donate</button>
+
+            <p className="campaign_info_desc">{description}</p>
+
+            <CampaignDonate
+              campaignId={id}
+              campaignTitle={title}
+              campaignImg={mainImg}
+            />
           </div>
         </div>
       </div>
+      <DonateCta />
+      <MailCollect />
     </div>
   );
 };

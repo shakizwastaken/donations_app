@@ -2,7 +2,7 @@
 
 @layer components {
   .mailCollect_wrapper {
-    @apply w-screen flex flex-col justify-center items-center my-12 gap-12 h-[50vh];
+    @apply w-screen flex flex-col justify-center items-center my-12 gap-10 h-[40vh];
   }
 
   .mailCollect_header {

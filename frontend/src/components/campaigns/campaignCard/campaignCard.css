@@ -16,16 +16,16 @@
     @apply h-[125px] w-full flex justify-center items-center;
   }
 
-  .campaignCard_content_wrapper.blue {
-    @apply bg-main_blue;
+  .campaignCard_content_wrapper.dark-card {
+    @apply bg-main_blue text-white;
   }
 
-  .campaignCard_content_wrapper.green {
-    @apply bg-main_green;
+  .campaignCard_content_wrapper.light-card {
+    @apply bg-white text-main_blue;
   }
 
   .campaignCard_content {
-    @apply text-white h-full w-[95%] p-3 flex justify-between items-center gap-2;
+    @apply h-full w-[95%] p-3 flex justify-between items-center gap-2;
   }
 
   .campaignCard_info > h1 {
@@ -33,6 +33,14 @@
   }
 
   .campaignCard_cta {
-    @apply font-bold rounded-md border-solid border-2 h-10 cursor-pointer hover:bg-white hover:text-main_blue;
+    @apply font-bold rounded-md border-solid border-2 h-10 cursor-pointer;
+  }
+
+  .campaignCard_content_wrapper.light-card .campaignCard_cta {
+    @apply hover:bg-main_blue hover:text-white;
+  }
+
+  .campaignCard_content_wrapper.dark-card .campaignCard_cta {
+    @apply hover:bg-white hover:text-main_blue;
   }
 }
